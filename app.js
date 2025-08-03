@@ -10,18 +10,16 @@ const port = 3000;
 app.use(cors());
 
 app.get('/video.mpd', (req, res) => {
-    console.log('called mpd', __dirname);
+    console.log('called mpd');
     const filePath = path.join(__dirname, 'ffmpeg_chunk', 'video_3.mpd');
-    console.log(filePath);
     res.sendFile(filePath);
 });
 
 // Serve the DASH segment files
 app.get('/video/:segment', (req, res) =>{
+    console.log('called segment');
     const segment = req.params.segment;
-    console.log('called segment', segment);
     const filePath = path.join(__dirname, 'ffmpeg_chunk', segment);
-    console.log(filePath);
     res.sendFile(filePath);
 });
 
