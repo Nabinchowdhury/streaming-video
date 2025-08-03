@@ -35,8 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/video', (req, res) => {
-    const __dirname = 'video'
-    const videoPath = path.join(__dirname, 'video_2.mp4');
+    const videoPath = path.join(__dirname, 'video', 'video_3.mp4');
     const stat = fs.statSync(videoPath);
     const fileSize = stat.size;
     const range = req.headers.range;
